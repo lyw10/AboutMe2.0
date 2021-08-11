@@ -8,7 +8,7 @@ const isDev = process.env.NODE_ENV === "development";
 const config = {
   mode: "development",
   target: "web",
-  entry: path.join(__dirname, "src","index.js"),
+  entry: path.join(__dirname, "src", "index.js"),
   output: {
     filename: "bundel.js",
     path: path.join(__dirname, "dist"),
@@ -19,30 +19,25 @@ const config = {
         test: /\.vue$/,
         loader: "vue-loader",
       },
-    //   {
-    //     test: /\.jsx$/,
-    //     loader: "babel-loader",
-    //   },
-      // {
-      //   test: /\.css$/,
-      //   use: ["vue-style-loader", "css-loader"],
-      // },
-
-    //   {
-    //     test: /\.(gif|jpg|jpeg|svg|png)$/,
-    //     use: [
-    //       {
-    //         loader: "url-loader",
-    //         options: {
-    //           limit: 10000,
-    //           name: "[name].[ext]",
-    //           outputPath: "assets/images",
-    //           esModule: false,
-    //           // publicPath: "../../",
-    //         },
-    //       },
-    //     ],
-    //   },
+      {
+        test: /\.css$/,
+        use: ["vue-style-loader", "css-loader"],
+      },
+      {
+        test: /\.(gif|jpg|jpeg|svg|png)$/,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 10000,
+              name: "[name].[ext]",
+              outputPath: "assets/images",
+              esModule: false,
+              publicPath: "../../",
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
@@ -69,24 +64,7 @@ if (isDev) {
   };
   config.plugins.push(
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
   );
-} 
-// else {
-//   config.module.rules({
-//     test: /\.styl/,
-//     use: [
-//       "style-loader",
-//       "css-loader",
-//       {
-//         loader: "postcss-loader",
-//         options: {
-//           sourceMap: true, //stylus-loader编译的sourceMap可以直接用
-//         },
-//       },
-//       "stylus-loader",
-//     ],
-//   });
-// }
+}
 
 module.exports = config;

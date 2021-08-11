@@ -1,70 +1,46 @@
 const path = require("path");
 const { VueLoaderPlugin } = require("vue-loader");
-// const createVueLoaderOptions = require("./vue-loader.config");
+const webpack = require("webpack");
 
 const isDev = process.env.NODE_ENV === "development";
 
 const config = {
-    mode:"development",
-//   target: "web",
-  entry: path.join(__dirname, "src","index.js"),
+  mode: "development",
+  target: "web",
+  entry: path.join(__dirname, "../src/index.js"),
   output: {
-    filename: "bundle.[hash:8].js",
+    filename: "bundle.js",
     path: path.join(__dirname, "../dist"),
-    // publicPath: "/public/",
   },
   module: {
     rules: [
-      // {
-      //   test: /\.(vue|js|jsx)$/,
-      //   loader: "eslint-loader",
-      //   exclude: /node_modules/,
-      // },
       {
         test: /\.vue$/,
         loader: "vue-loader",
-        // options: createVueLoaderOptions(isDev),
-        // options: {
-        //   cssModules: {
-        //     modules: true,
-        //     localIdentName: "[path][name]---[local]---[hash:base64:5]",
-        //     camelCase: true,
-        //   },
-        // },
       },
-    //   {
-    //     test: /\.jsx$/,
-    //     loader: "babel-loader",
-    //   },
       {
         test: /\.js$/,
-        loader: "babel-loader",
-        exclude: /node_modules/, //不要编译node modules的文件
+        loader: 'babel-loader',
+        exclude:/node_modules/
       },
-      //没有css文件
       {
-         test: /\.css$/,
-         use: ["vue-style-loader", "css-loader"],
-       },
+        test: /\.css$/,
+        use: ["vue-style-loader", "css-loader"],
+      },
+      {
+        test:/\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        loader: "url-loader",
+        options: {
+          limit: 10000,
+          name: "resources/[path][name].[hash:8].[ext]",
+        },
 
-      {
-        test: /\.(gif|jpg|jpeg|svg|png)$/,
-        use: [
-          {
-            loader: "url-loader",
-            options: {
-              limit: 1024,
-              name: "resources/[path][name].[hash:8].[ext]",
-              //   outputPath: "assets/images",
-            //   esModule: false,
-              //   publicPath: "../../",
-            },
-          },
-        ],
       },
     ],
   },
-  plugins: [new VueLoaderPlugin()],
+  plugins: [
+    new VueLoaderPlugin(),
+  ],
 };
 
 module.exports = config;
