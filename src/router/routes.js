@@ -15,7 +15,8 @@ export default [
   {
     path: "/project/:id",
     name: "PROJECT",
-    component: Project,
+    // component: Project,
+    component: () => import("../views/project.vue"),
     props: true,
   },
   {

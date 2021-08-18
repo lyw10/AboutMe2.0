@@ -4,7 +4,7 @@
       <!-- <router-link to="/login">Login</router-link>
       <router-link to="/about">About</router-link>
       <router-link to="/project">Project</router-link> -->
-      <router-view></router-view>
+      <router-view :key='$route.fullPath'></router-view>
   </div>
   
 </template>

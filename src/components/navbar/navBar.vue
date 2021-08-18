@@ -9,7 +9,7 @@
         class="about"
         v-bind:class="{'nav-active':currentId === -1}"
         @click.prevent="$store.state.currentId = -1;"
-        ><router-link to="/">About</router-link></a
+        ><router-link to="/about">About</router-link></a
       >
     </div>
     <ul class="flex">
@@ -58,50 +58,55 @@ export default {
     
     // watch: {
     //     $route() {
-    //       let hash = window.location.hash;
-    //       // console.log('route',hash)
-    
-    //       if(hash === '#/about' || hash === '#/'){
-    //         this.currentId = -1;
+    //       let pathname = window.location.pathname;
+    //       console.log(pathname);
+    //         if(pathname === '/about' || pathname === '/'){
+    //         this.$store.state.currentId = -1;
     //       }else{
-    //         console.log('projectnnn');
-    //         let num = hash.split('/')[2]
-    //       // console.log('route num',num)
-    //       this.currentId = parseInt(num)
-    //       // console.log('route currentId',this.currentId)
-    //       document.documentElement.scrollTop = 0;
+    //         let num = pathname.split('/')[2]
+    //         console.log(num);
+    //         this.$store.state.currentId = num;
     //       }
+    //       console.log(this.$store.state.currentId);
+    //     }
+        //   
+    
+        
+        //   // console.log('route num',num)
+        //   this.currentId = parseInt(num)
+        //   // console.log('route currentId',this.currentId)
+        //   document.documentElement.scrollTop = 0;
+        //   }
+        // }
 
-    //       this.$nextTick(()=>{
-    //       let skewtimer = setTimeout(() => {
-    //         let headertext = document.querySelectorAll(".wrapper");
+        //   this.$nextTick(()=>{
+        //   let skewtimer = setTimeout(() => {
+        //     let headertext = document.querySelectorAll(".wrapper");
     
-    //         headertext.forEach((e) => {
-    //           e.classList.add("skew");
-    //           e.classList.remove("no-skew");
-    //         });
-    //       }, 0);
+        //     headertext.forEach((e) => {
+        //       e.classList.add("skew");
+        //       e.classList.remove("no-skew");
+        //     });
+        //   }, 0);
     
-    //       let skewtime = setTimeout(() => {
-    //         let headertext = document.querySelectorAll(".wrapper");
+        //   let skewtime = setTimeout(() => {
+        //     let headertext = document.querySelectorAll(".wrapper");
     
-    //         headertext.forEach((e) => {
-    //           e.classList.add("no-skew");
-    //         });
-    //       }, 100);
+        //     headertext.forEach((e) => {
+        //       e.classList.add("no-skew");
+        //     });
+        //   }, 100);
 
-    //       setTimeout(() => {
-    //         clearTimeout(skewtimer);
-    //         clearTimeout(skewtime);
-    //       }, 1000);
+        //   setTimeout(() => {
+        //     clearTimeout(skewtimer);
+        //     clearTimeout(skewtime);
+        //   }, 1000);
     
-    //       })
-    //       this.projectData.currentMain = this.projectData.main.filter(
-    //         (e) => e.hid === this.currentId
-    //       );
-    //     },
+        //   })
+          
+        // },
     //  },
-    }
+}
 </script>
 
 <style scoped>

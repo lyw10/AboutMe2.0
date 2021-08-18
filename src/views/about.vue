@@ -139,6 +139,7 @@ export default {
     };
   },
   mounted() {
+    console.log('about mounted');
     const html = document.documentElement;
     const convinceds = document.querySelectorAll(".convinced");
 
@@ -163,18 +164,23 @@ export default {
 
     let speed = parseInt(200 / (document.body.offsetWidth * 0.03));
     // console.log("speed:", speed);
-    for (let i = 0; i < headerContent.length; i++) {
-      copyContent[i].innerHTML = headerContent[i].innerHTML;
+    // setInterval(()=>{
+    //   contentWrapper[0].style.left='100'+'px';
+    //   // console.log(contentWrapper[0].getBoundingClientRect())
+    //   console.log(contentWrapper[0].style.left);
+    // },2000)
+    // for (let i = 0; i < headerContent.length; i++) {
+    //   copyContent[i].innerHTML = headerContent[i].innerHTML;
 
-      function Marquee() {
-        if (copyContent[i].offsetWidth - contentWrapper[i].scrollLeft <= 0) {
-          contentWrapper[i].scrollLeft -= headerContent[i].offsetWidth;
-        } else {
-          contentWrapper[i].scrollLeft++;
-        }
-      }
-      setInterval(Marquee, speed);
-    }
+    //   function Marquee() {
+    //     if (copyContent[i].offsetWidth - contentWrapper[i].scrollLeft <= 0) {
+    //       contentWrapper[i].scrollLeft -= headerContent[i].offsetWidth;
+    //     } else {
+    //       contentWrapper[i].scrollLeft++;
+    //     }
+    //   }
+    //   setInterval(Marquee, speed);
+    // }
     let headertext = document.querySelectorAll(".wrapper");
     headertext.forEach(e => e.classList.add("no-skew"));
   },

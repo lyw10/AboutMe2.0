@@ -69,22 +69,6 @@ export default {
         }),
         ...mapGetters(['projectTitle','currentMain'])
     },
-    // beforeRouteUpdate(to,from,next){
-    //   let headertext = document.querySelectorAll(".wrapper");
-    //   console.log(headertext[0]);
-    //   headertext[0].classList.remove('no-skew')
-    //     // console.log(to,from,next);
-    //     // if(to.fullPath!=from.fullPath){
-    //     //     next()
-    //     // }
-    //     // console.log(this.$route);
-    //     // this.$router.push({
-    //     //     path:`/project/${id}` 
-    //     // });
-        
-    //     headertext[0].classList.add('no-skew')
-    //     next()
-    // },
     mounted(){
         //页面跳转到project才获取main
         this.fetchMain()
@@ -133,7 +117,7 @@ export default {
       },
     // watch:{
     //     $route(){
-    //       console.log('route');
+    //       console.log('project route');
     //       let pathname = window.location.pathname;
     //       // console.log('route',pathname)
     //       if(pathname.split('/')[1] =='project'){
